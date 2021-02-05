@@ -129,7 +129,7 @@ class TypeScriptCodeGenerator {
             codeWriter = new CodeWriter(this.getIndentString(options));
             codeWriter.writeLine();
             this.writeEnum(codeWriter, elem, options);
-            this.writeNamespace("writeEnum", codeWriter, elem, options, isAnnotationType);
+            // this.writeNamespace("writeEnum", codeWriter, elem, options, isAnnotationType);
             fs.writeFileSync(fullPath, codeWriter.getData())
 
         }
@@ -715,7 +715,13 @@ class TypeScriptCodeGenerator {
                 terms.push(visibility);
             }
             terms.push("constructor()");
+
             codeWriter.writeLine(terms.join(" ") + " {");
+            // Check super class
+            var _extends = this.getSuperClasses(elem);
+            if (_extends.length > 0) {
+                codeWriter.writeLine("super();");
+            }
             codeWriter.writeLine("}");
         }
     };

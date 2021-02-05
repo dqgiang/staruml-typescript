@@ -679,7 +679,11 @@ class TypeScriptCodeGenerator {
                 if (_modifiers.length > 0) {
                     terms.push(_modifiers.join(" "));
                 }
+                
+                console.log("writemember", "terms", terms[terms.length - 1]);
             }
+            
+            console.log("writemember", "terms-2", terms[terms.length - 1]);
 
             // name
             terms.push(elem.name);

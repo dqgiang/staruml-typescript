@@ -181,10 +181,10 @@ class TypeScriptCodeGenerator {
         this.writeDoc(codeWriter, elem.documentation, options);
 
         // Modifiers
-        var visibility = this.getVisibility(elem);
-        if (visibility) {
-            terms.push(visibility);
-        }
+        // var visibility = this.getVisibility(elem);
+        // if (visibility) {
+        //     terms.push(visibility);
+        // }
         // Enum
         terms.push("enum");
         terms.push(elem.name);
@@ -199,6 +199,8 @@ class TypeScriptCodeGenerator {
 
         codeWriter.outdent();
         codeWriter.writeLine("}");
+        codeWriter.writeLine();
+        codeWriter.writeLine("export default " + elem.name + ";");
     };
 
     /**
@@ -280,8 +282,8 @@ class TypeScriptCodeGenerator {
 
         codeWriter.outdent();
         codeWriter.writeLine("}");
-
-
+        codeWriter.writeLine();
+        codeWriter.writeLine("export default " + elem.name + ";");
     };
 
 
@@ -519,6 +521,8 @@ class TypeScriptCodeGenerator {
 
         codeWriter.outdent();
         codeWriter.writeLine("}");
+        codeWriter.writeLine();
+        codeWriter.writeLine("export default " + elem.name + ";");
     };
 
     /**

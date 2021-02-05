@@ -720,7 +720,9 @@ class TypeScriptCodeGenerator {
             // Check super class
             var _extends = this.getSuperClasses(elem);
             if (_extends.length > 0) {
+                codeWriter.indent();
                 codeWriter.writeLine("super();");
+                codeWriter.outdent();
             }
             codeWriter.writeLine("}");
         }
